@@ -1,20 +1,25 @@
-class Grandparent{
-    void car(){
+interface  Parent1{
+    default void car()
+    {
         System.out.println("Audi Car");
     }
 }
-class  Parent1 extends Grandparent{
-    void car(){
-        System.out.println("Audi Car");
+interface  Parent2{
+    default  void car()
+    {
+        System.out.println("BMW Car");
     }
 }
-class  Parent2 extends Grandparent{
-    void car(){
-        System.out.println("Audi Car");
+public class Multiinheri implements Parent1,Parent2
+{
+    public void car()
+    {
+        Parent1.super.car();
     }
-}
-public class multiinheri{
-    public static void main(String[] args){
-        
+    public static void main(String[] args)
+    {
+     Multiinheri d=new Multiinheri();
+     d.car();
+
     }
 }
